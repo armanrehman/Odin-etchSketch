@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #87CEEB, #ADD8E6);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.etch-a-sketch {
+    background-color: #DC143C;
+    width: 600px;
+    height: 550px;
+    border-radius: 25px;
+    border: 8px solid #B22222;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.board-header {
+    background: linear-gradient(135deg, #FF6B6B, #DC143C);
+    border-radius: 15px 15px 0 0;
+    margin-bottom: 15px;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.board-header h1 {
+    font-size: 24px;
+}
+
+.drawing-area {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    max-width: 450px;
+    max-height: 350px;
+    border: 2px solid #ccc;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.square {
+    box-sizing: border-box;
+    border: 0.5px solid #eee;
+    background-color: white;
+    transition: background-color 0.1s ease;
+    flex-shrink: 0;
+}
+
+.square.filled {
+    background-color: #666;
+}
+
+.slider-container {
+    background: linear-gradient(135deg, #FF6B6B, #DC143C);
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+.erase-slider {
+    width: 200px;
+    height: 8px;
+    border-radius: 20px;
+    background: #ddd;
+    outline: none;
+}
+
+.erase-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid white;
+    cursor: pointer;
+}
+
+.erase-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #DC143C;
+    cursor: pointer;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+}
+
+.controls-button {
+    background: white;
+    color: #DC143C;
+    border: 2px solid #DC143C;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.controls-button:hover {
+    background: #DC143C;
+    color: white;
+}
