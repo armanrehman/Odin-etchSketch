@@ -57,6 +57,9 @@ function stopDrawing() {
     isDrawing = false;
 }
 
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('mouseup', stopDrawing);
+
 //eraser functionality
 document.getElementById('eraseSlider').addEventListener('input',function(e){
     const sliderValue = parseInt(e.target.value);
@@ -64,10 +67,16 @@ document.getElementById('eraseSlider').addEventListener('input',function(e){
     const totalSquares = squares.length;
     const squaresToErase = Math.floor((sliderValue / 100) * totalSquares);
 
-    //erasing horizontally
-    for (let i=0; i<squaresToErase; i++)
-    {
-        squares[i].classList.remove('filled');
+    //columns to erase from left
+    const columnsToErase = Math.floor((sliderValue / 100) * currentGridSize);
+    
+    for (let col = 0; col < columnsToErase; col++) {
+        for (let row = 0; row < currentGridSize; row++) {
+            const index = row * currentGridSize + col;
+            if (squares[index]) {
+                squares[index].classList.remove('filled');
+            }
+        }
     }
 });
 
